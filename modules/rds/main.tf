@@ -13,7 +13,7 @@ resource "aws_db_subnet_group" "main" {
 resource "aws_security_group" "main" {
   name        = "${var.env}-mysql-rds"
   description = "${var.env}-mysql-rds"
-  vpc_id      = aws_vpc_id
+  vpc_id      = var.vpc_id
 
   ingress {
     description = "MYSQL"

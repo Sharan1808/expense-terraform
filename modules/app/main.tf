@@ -31,14 +31,19 @@ resource "aws_security_group" "main" {
 }
 
 resource "aws_launch_template" "main" {
-  name_prefix   = "${var.env}-${var.component}"
-  image_id      = data.aws_ami.ami.image_id
-  instance_type = var.instance_type
+  name_prefix            = "${var.env}-${var.component}"
+  image_id               = data.aws_ami.ami.image_id
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.main.id]
-  tags = merge(var.tags, { Name = "${var.env}-${var.component}" })
+  tags                   = merge(var.tags, { Name = "${var.env}-${var.component}" })
+  user_data              = base64encode(templatefile("${path.module}/userdata.sh", {
+    role_name = var.component
+    env       = var.env
+  }))
 }
 
 resource "aws_autoscaling_group" "main" {
+  name                = "${var.env}-${var.component}"
   desired_capacity    = var.instance_count
   max_size            = var.instance_count + 5
   min_size            = var.instance_count

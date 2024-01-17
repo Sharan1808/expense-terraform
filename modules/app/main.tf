@@ -42,9 +42,9 @@ resource "aws_autoscaling_group" "main" {
   }
 
   tag {
-    key                 = ""
-    value               = ""
-    propagate_at_launch = false
+    key                 = "Name"
+    value               = "${var.env}-${var.component}"
+    propagate_at_launch = true
   }
 
 }

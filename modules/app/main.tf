@@ -101,7 +101,8 @@ resource "aws_iam_role" "main" {
           ],
           "Resource": [
             "arn:aws:ssm:us-east-1:314523829041:parameter/${var.env}.${var.component}.*",
-            "arn:aws:ssm:us-east-1:314523829041:parameter/newrelic.licence_key"
+            "arn:aws:ssm:us-east-1:314523829041:parameter/newrelic.licence_key",
+            "arn:aws:ssm:us-east-1:314523829041:parameter/${var.env}.rds.*"
           ]
         },
         {

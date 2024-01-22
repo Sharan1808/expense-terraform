@@ -36,19 +36,23 @@ frontend = {
 
 bastion_cidrs = ["172.31.47.211/32"]
 
-public_alb = {
-  internal = false
-  lb_port  = 80
-  type     = "public"
-  component = "frontend"
+
+public_alb     = {
+  internal     = false
+  lb_port      = 80
+  type         = "public"
+  component    = "frontend"
+  enable_https = true
 }
 
-backend_alb = {
-  internal = true
-  lb_port  = 80
-  type     = "backend"
-  component = "backend"
+backend_alb    = {
+  internal     = true
+  lb_port      = 80
+  type         = "backend"
+  component    = "backend"
+  enable_https = false
 }
 
 route53_zone_id = "Z08005401DQ0Y8GTTZHAT"
 kms = "arn:aws:kms:us-east-1:314523829041:key/39eb2353-2925-4333-8183-df851cab701c"
+certificate_arn = "arn:aws:acm:us-east-1:314523829041:certificate/b3a36466-42e2-4a4d-8a4f-54fb47bed7ad"

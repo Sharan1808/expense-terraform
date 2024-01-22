@@ -20,4 +20,6 @@ variable "frontend" {}
 variable "public_alb" {}
 variable "backend_alb" {}
 variable "route53_zone_id" {}
+variable "kms" {}
+
 

@@ -11,7 +11,7 @@ web_subnets    =["10.20.2.0/24", "10.20.3.0/24"]
 app_subnets    =["10.20.4.0/24", "10.20.5.0/24"]
 db_subnets     =["10.20.6.0/24", "10.20.7.0/24"]
 
-azs                    = ["us-east-1a", "us-east-1b"]
+azs                    = ["us-east-1a", "us-east-1b", "us-east-1c"]
 account_id             = "314523829041"
 default_vpc_id         = "vpc-0b1c8dac07bf744ed"
 default_route_table_id = "rtb-04a7ce1e831944094"

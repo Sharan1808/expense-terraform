@@ -30,11 +30,12 @@ backend = {
 
 frontend = {
   app_port       = 80
-  instance_count = 1
+  instance_count = 2
   instance_type  = "t3.micro"
 }
 
-bastion_cidrs = ["172.31.47.211/32"]
+bastion_cidrs    = ["172.31.47.211/32"]
+prometheus_cidrs = ["172.31.91.78/32"]
 
 
 public_alb     = {
